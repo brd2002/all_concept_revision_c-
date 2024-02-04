@@ -67,6 +67,25 @@ void roateByAntiClockWise(string &s){
             return addTowNumber(s2 , s1);
         }
     }
+    // factorial number using string 
+    vector<int>factorialnumber(int n){
+        vector<int>ans(1 , 1);
+        while(n > 1){
+            int carry = 0 , res , size  = ans.size() ; 
+            for (int i = 0 ; i < size ; i++){
+                res = ans[i] * n + carry ;
+                carry = res/10;
+                ans[i] = res%10 ;
+            }
+            while(carry){
+                ans.push_back(carry%10);
+                carry = carry/10;
+            }
+            n--;
+        }
+        reverse(ans.begin() , ans.end());
+        return ans;
+    }
 int main(){
     // string s = "bharat is \"good\"boy";
     // cout << s << endl;
@@ -76,9 +95,12 @@ int main(){
     // rotateByClockWise(s);
     // roateByAntiClockWise(s);
     // cout << s << endl;
-    string s1 = "1234" ;
-    string s2 = "125555" ; 
-    cout << findSum(s1 , s2); 
-
+    // string s1 = "1234" ;
+    // string s2 = "125555" ; 
+    // cout << findSum(s1 , s2); 
+    vector<int>fac = factorialnumber(236);
+    for (auto x : fac){
+        cout  << x ;
+    }
     return 0;
 }
