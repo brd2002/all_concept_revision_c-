@@ -133,7 +133,42 @@ int longestPrefixAndSuffix(string &s)
             }
         }
     }
-    return lps[s.size()-1];
+    return lps[s.size() - 1];
+}
+
+// Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+// A word is a maximal
+// substring
+//  consisting of non-space characters only.
+// Input: s = "   fly me   to   the moon  "
+int lengthOfLastWord(string s)
+{
+    string words = "";
+    vector<string> string_words;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] != ' ')
+        {
+            words += s[i];
+        }
+        else
+        {
+            if (words.length() > 0){
+                string_words.push_back(words);
+            }
+            words = "";
+        }
+    }
+    if (words.length() != 0)
+    {
+        string_words.push_back(words);
+    }
+    // for (int i = 0; i < string_words.size(); i++)
+    // {
+    //     cout << string_words[i] << endl;
+    // }
+    return string_words[string_words.size()-1].size();
 }
 int main()
 {
@@ -152,6 +187,8 @@ int main()
     // for (auto x : fac){
     //     cout  << x ;
     // }
+    string s = "   fly me   to   the moon  ";
+    cout << lengthOfLastWord(s) ; 
 
-    return 0;
+        return 0;
 }
