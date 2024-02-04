@@ -86,21 +86,25 @@ void roateByAntiClockWise(string &s){
         reverse(ans.begin() , ans.end());
         return ans;
     }
+    // longest sub string which is not repeating nay charecter
+    int lengthOfLongestSubstring(string s) {
+        
+    }
 int main(){
     // string s = "bharat is \"good\"boy";
     // cout << s << endl;
     // char a = '0';
     // cout << int(a) << endl;
-    string s = "bharat";
+    // string s = "bharat";
     // rotateByClockWise(s);
     // roateByAntiClockWise(s);
     // cout << s << endl;
     // string s1 = "1234" ;
     // string s2 = "125555" ; 
     // cout << findSum(s1 , s2); 
-    vector<int>fac = factorialnumber(236);
-    for (auto x : fac){
-        cout  << x ;
-    }
+    // vector<int>fac = factorialnumber(236);
+    // for (auto x : fac){
+    //     cout  << x ;
+    // }
     return 0;
 }
