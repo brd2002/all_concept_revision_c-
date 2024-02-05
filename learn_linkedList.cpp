@@ -29,7 +29,19 @@ Node *createNodeINReverseOrder(int arr[], int index, int size, Node *prev)
     Node *temp;
     temp = new Node(arr[index]);
     temp->next = prev;
-    return createNodeINReverseOrder(arr , index+1 , size , prev);
+    return createNodeINReverseOrder(arr, index + 1, size, prev);
+}
+Node *insertInGivenPossition(Node *head, int position, int value)
+{
+    Node *temp = head;
+    while (position--)
+    {
+        temp = temp->next;
+    }
+    Node *temp2 = new Node(value);
+    temp2->next = temp->next;
+    temp->next = temp2;
+    return head;
 }
 void addInEnd(Node *head, int data)
 {
@@ -56,7 +68,7 @@ int main()
     Node *head;
     int arr[] = {1, 2, 3, 4, 5};
     // head = CreateLinkedListUsingRecursion(arr, 0, 5);
-    head = createNodeINReverseOrder(arr , 0 , 5  ,NULL);
+    head = createNodeINReverseOrder(arr, 0, 5, NULL);
 
     // head = new Node(4);
     // int arr[] = {1, 2, 3};
