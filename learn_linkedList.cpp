@@ -22,6 +22,15 @@ Node *CreateLinkedListUsingRecursion(int arr[], int index, int size)
     temp->next = CreateLinkedListUsingRecursion(arr, index + 1, size);
     return temp;
 }
+Node *createNodeINReverseOrder(int arr[], int index, int size, Node *prev)
+{
+    if (index == size)
+        return prev;
+    Node *temp;
+    temp = new Node(arr[index]);
+    temp->next = prev;
+    return createNodeINReverseOrder(arr , index+1 , size , prev);
+}
 void addInEnd(Node *head, int data)
 {
     Node *tail;
@@ -45,8 +54,9 @@ void printAllNode(Node *head)
 int main()
 {
     Node *head;
-    int arr[] = {1,2,3,4,5};
-    head = CreateLinkedListUsingRecursion(arr , 0 , 5);
+    int arr[] = {1, 2, 3, 4, 5};
+    // head = CreateLinkedListUsingRecursion(arr, 0, 5);
+    head = createNodeINReverseOrder(arr , 0 , 5  ,NULL);
 
     // head = new Node(4);
     // int arr[] = {1, 2, 3};
