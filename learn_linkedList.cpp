@@ -12,12 +12,23 @@ public:
     }
     // node type address
 };
+// insert first possition element in linked list using recursion
+Node *CreateLinkedListUsingRecursion(int arr[], int index, int size)
+{
+    if (index == size)
+        return NULL;
+    Node *temp;
+    temp = new Node(arr[index]);
+    temp->next = CreateLinkedListUsingRecursion(arr, index + 1, size);
+    return temp;
+}
 void addInEnd(Node *head, int data)
 {
-    Node * tail ;
+    Node *tail;
     tail = head;
-    while (tail->next != NULL){
-        tail = tail->next ;
+    while (tail->next != NULL)
+    {
+        tail = tail->next;
     }
     Node *temp = new Node(data);
     tail->next = temp;
@@ -34,22 +45,25 @@ void printAllNode(Node *head)
 int main()
 {
     Node *head;
-    head = new Node(4);
-    int arr[] = {1, 2, 3};
-    for (int i = 0; i < 3; i++)
-    {
-        if (head == NULL)
-        {
-            Node *head = new Node(arr[i]);
-        }
-        else
-        {
-            Node *temp = new Node(arr[i]);
-            temp->next = head;
-            head = temp;
-        }
-    }
-    addInEnd(head , 12);
+    int arr[] = {1,2,3,4,5};
+    head = CreateLinkedListUsingRecursion(arr , 0 , 5);
+
+    // head = new Node(4);
+    // int arr[] = {1, 2, 3};
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     if (head == NULL)
+    //     {
+    //         Node *head = new Node(arr[i]);
+    //     }
+    //     else
+    //     {
+    //         Node *temp = new Node(arr[i]);
+    //         temp->next = head;
+    //         head = temp;
+    //     }
+    // }
+    // addInEnd(head, 12);
     printAllNode(head);
     // print the head data
     // cout << head->data << endl;
